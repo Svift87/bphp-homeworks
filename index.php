@@ -17,6 +17,16 @@
             </li>
         </ul>
     </li>
+    <li>
+        <ul>
+            <li>Занятие 1.2. ФОРМЫ И СТРОКИ
+                <ul>
+                    <li><a href="1.2-strings-and-forms/1.2.1-registration">Задание 1.2.1</a></li>
+                    <li><a href="1.2-strings-and-forms/1.2.2-name-standart">Задание 1.2.2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 </ul>
 </body>
 </html>
