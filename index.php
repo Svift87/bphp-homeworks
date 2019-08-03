@@ -29,10 +29,20 @@
     </li>
     <li>
         <ul>
-            <li>Занятие 1.2. ФОРМЫ И СТРОКИ
+            <li>Занятие 1.3
                 <ul>
                     <li><a href="1.3-arrays-and-functions/1-places">Задание 1</a></li>
                     <li><a href="1.3-arrays-and-functions/2-search">Задание 2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li>Занятие 2.1
+                <ul>
+                    <li><a href="2.1-files/2.1.1">Задание 1</a></li>
+                    <li><a href="2.1-files/2.1.2">Задание 2</a></li>
                 </ul>
             </li>
         </ul>
