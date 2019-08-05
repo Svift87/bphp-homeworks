@@ -43,7 +43,7 @@ if (date("N") == 1) {
     $day = 'воскресенье';
 };
 
-if (date("H") >= 06 && date("H") <= 10) {
+if (date("H") >= 6 && date("H") <= 10) {
     $time = $morningGood;
     $bacimag = $morningGoodImg;
 } else if (date("H") >= 11 && date("H") <= 17) {
@@ -52,7 +52,7 @@ if (date("H") >= 06 && date("H") <= 10) {
 } else if (date("H") >= 18 && date("H") <= 22) {
     $time = $eveninGood;
     $bacimag = $eveninGoodImg;
-} else if (date("H") >= 00 && date("H") <= 5 && date("H") == 23) {
+} else if (date("H") >= 0 && date("H") <= 5 && date("H") == 23) {
     $time = $nightsGood;
     $bacimag = $nightsGoodImg;
 }
@@ -60,21 +60,21 @@ if (date("H") >= 06 && date("H") <= 10) {
 
 // Подскажите где ошибка?
 
-// if (date("H") >= 11 && date("H") <= 17 && date("N") >= 1 && date("N") <= 6) {
-//     $timeWork = $tooday + $doWork;
-// } else if (date("H") >= 18 && date("H") <= 23 && date("N") >= 1 && date("N") <= 3) {
-//     $timeWork = $tomorrow + $pnSr;
-// } else if (date("H") >= 00 && date("H") <= 08 && date("N") >= 1 && date("N") <= 4) {
-//     $timeWork = $todayNight + $pnSr;
-// } else if (date("H") >= 18 && date("H") <= 23 && date("N") >= 4 && date("N") <= 5) {
-//     $timeWork = $tomorrow + $chSb;
-// } else if (date("H") >= 00 && date("H") <= 08 && date("N") >= 4 && date("N") <= 6) {
-//     $timeWork = $todayNight + $chSb;
-// } else if (date("H") >= 18 && date("H") <= 23 && date("N") == 6 ) {
-//     $timeWork = $afterTomorrow + $pnSr;
-// } else if (date("H") >= 00 && date("H") <= 23 && date("N") == 7) {
-//     $timeWork = $tomorrow + $pnSr;
-// }  
+if (date("H") >= 11 && date("H") <= 17 && date("N") >= 1 && date("N") <= 6) {
+    $timeWork = $tooday . $doWork;
+} else if (date("H") >= 18 && date("H") <= 23 && date("N") >= 1 && date("N") <= 3) {
+    $timeWork = $tomorrow . $pnSr;
+} else if (date("H") >= 0 && date("H") <= 8 && date("N") >= 1 && date("N") <= 4) {
+    $timeWork = $todayNight . $pnSr;
+} else if (date("H") >= 18 && date("H") <= 23 && date("N") >= 4 && date("N") <= 5) {
+    $timeWork = $tomorrow . $chSb;
+} else if (date("H") >= 0 && date("H") <= 8 && date("N") >= 4 && date("N") <= 6) {
+    $timeWork = $todayNight . $chSb;
+} else if (date("H") >= 18 && date("H") <= 23 && date("N") == 6 ) {
+    $timeWork = $afterTomorrow . $pnSr;
+} else if (date("H") >= 0 && date("H") <= 23 && date("N") == 7) {
+    $timeWork = $tomorrow . $pnSr;
+}  
 
 
 ?>
@@ -91,7 +91,6 @@ if (date("H") >= 06 && date("H") <= 10) {
         <h2><?=$time?></h2>
         <hr>
         <p>Сегодня <?=$day?></p>
-        <p><br></p>
         <p><?=$timeWork?></p>
     </div>
 </body>
