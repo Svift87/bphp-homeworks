@@ -3,12 +3,13 @@
         protected $fileName;
         protected $file;
         public function __construct($fileName) {
-            $this->fileName = 'files/new.json';
+            $this->fileName = parent::DATABASE_PATH.$fileName.'.json';
         }
         private function connect() {
+            var_dump($this->file);
             if ($this->file == NULL) {
                 if (fopen($this->fileName,'r+') == FALSE) {
-                    echo 'error during opeining file';
+                    echo 'Ошибка во время открытия файла';
                 }else {                    
                     $this->file = fopen($this->fileName,'r+');
                 } 
@@ -24,13 +25,13 @@
                 $this->disconnect();
                 return $text;
             }else {
-                echo 'error during reading this file';
+                echo 'Во время чтения файла произошла ошибка';
             }  
             
         }
         public function write($text) {
             if(fopen($this->file,'w+') !== FALSE);
-            if(fwrite($this->file,$text)!== FALSE) echo 'Done';
+            if(fwrite($this->file,$text)!== FALSE) echo 'Успешено';
             $this->disconnect();
         }
         public function readJson() {
@@ -38,7 +39,7 @@
         }
         public function writeJson($jsonObject){
             if(fopen($this->file,'w+') !== FALSE);
-            if(fwrite($this->file,json_decode($jsonObject,JSON_PRETTY_PRINT))!== FALSE) echo 'Done';
+            if(fwrite($this->file,json_decode($jsonObject,JSON_PRETTY_PRINT))!== FALSE) echo 'Успешено';
             $this->disconnect();
         }
     }

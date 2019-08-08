@@ -4,7 +4,5 @@
     include 'classes/JsonFileAccessModel.php';
 
     $jsonObj = new JsonFileAccessModel('new');
-    $json = $jsonObj->readJson();
-    
-    var_dump($json);
+    $json = $jsonObj->readJson();    
 ?>
