@@ -1,65 +1,39 @@
 <?php
-
-function generate($rows, $placesPerRow, $avaliableCount) {
-    if ($rows * $placesPerRow > $avaliableCount) {
-        return false;
+function search($quantity, $map) {
+    $row = count($map);
+    $column = count($map[0]);
+for ($i=0; $i < $row; $i++) {
+    $place = 0;
+    for ($j=0; $j < $column; $j++) {
+        if ($j > $column - $quantity + 1) {
+            continue;
+        }
+        if ($map[$i][$j] == 0) {
+            $place = $place + 1;
+            if ($place == $quantity) {
+                echo 'Возможные места ряд: '. ($i+1) . ' места с: ' . ($j+1 - $quantity+1). ' по: ' . ($j+1) . '<br></br>';
+                continue;
+            }
+        } else
+            $place = 0;
+        
     }
-    $map = [];
-    for ($i = 0; $i < $rows; $i++) {
-        for ($a = 0; $a < $placesPerRow; $a++) {
-            $map[$i][$a] = false;
+}
+}
+function generate($rows, $placesPerRow, $avaliableCount) {
+    if ($rows * $placesPerRow  > $avaliableCount) {
+        $result = FALSE;
+    } else {
+        $result = array(array());
+        for ($i = 0; $i <= $rows-1; $i++) {
+            for ($j = 0; $j <= $placesPerRow-1; $j++) {
+                $result[$i][$j] = rand(0,1);
+                //echo $i;
+            }
         }
     }
-    return $map;
+return $result;
 }
-
-function reserve($map, $row, $place) {
-    if ($map[$row-1][$place-1] === false) {
-        $map[$row-1][$place-1] = true;
-        return true;
-    }
-}
-
-$chairs = 50;
-$map = generate(5, 8, $chairs);
-$requiredRow = 3;
-$requiredPlace = 5;
-
-$reverve = reserve($map, $requiredRow, $requiredPlace);
-logReserve($requiredRow, $requiredPlace, $reverve);
-
-$reverve = reserve($map, $requiredRow, $requiredPlace);
-logReserve($requiredRow, $requiredPlace, $reverve);
-
-
-function logReserve($row, $place, $result){
-    if ($result) {
-        echo "Ваше место забронировано! Ряд $row, место $place".PHP_EOL;
-    } else {
-        echo "Что-то пошло не так=( Бронь не удалась".PHP_EOL;
-    }
-}
-
-function checkPlacesOfMap($map,$requireNearPlaces) {
-    for($i=0;$i<count($map);$i++){
-        $checkPos = 0;
-        $row = $i+5;
-        $places = ["Ряд $row"];        
-        for($a=0;$a<(count($map[$i])-$requireNearPlaces + 1);$a++) {
-            if($checkPos !== $requireNearPlaces) {
-                if($map[$i][$a] === FALSE) {
-                    $checkPos++;
-                    $place = $a+1;
-                    $places[] =  "Место $place"; 
-                } else {
-                    $checkPos = 0;
-                }
-            }else {
-                return $places;
-            }
-        }     
-    }
-}
-print_r(checkPlacesOfMap($map,4));
-
-?>
+$map = generate(5,10,51);
+search(3,$map);
+?>   
