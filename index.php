@@ -57,6 +57,17 @@
             </li>
         </ul>
     </li>
+    <li>
+        <ul>
+            <li>Занятие 2.3
+                <ul>
+                    <li><a href="2.3-dates-and-sessions/2.3.1-your-tube">Задание 1</a></li>
+                    <li><a href="2.3-dates-and-sessions/2.3.2-brute-protection/form.html">Задание 2</a></li>
+                    <li><a href="2.3-dates-and-sessions/2.3.3-additional">Задание 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 </ul>
 </body>
 </html>
