@@ -68,6 +68,15 @@
             </li>
         </ul>
     </li>
+    <li>
+        <ul>
+            <li>Занятие 3.1
+                <ul>
+                    <li><a href="3.1-exceptions-and-headers/3.1.1-router">Задание 1</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 </ul>
 </body>
 </html>
