@@ -12,7 +12,7 @@ function generate($rows, $placesPerRow, $avaliableCount) {
     }
 return $result;
 }
-function reserve($map, $row, $place) {
+function reserve(&$map, $row, $place) {
   
     if ($map[$row-1][$place-1] == FALSE) {
         $map[$row-1][$place-1] = TRUE;
@@ -34,8 +34,6 @@ $requirePlace = 5;
 $reverve = reserve($map, $requireRow, $requirePlace);
 
 logReserve($requireRow, $requirePlace, $reverve);
-
-$map[$requireRow-1][$requirePlace-1]=$reverve;
 
 $reverve = reserve($map, $requireRow, $requirePlace);
 
