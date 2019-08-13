@@ -16,7 +16,6 @@ while ($str = fgetcsv($file, 1000, ';')) {
 
 fclose($file);
 
-
 echo mb_detect_encoding(json_encode($json));
 
 file_put_contents('data.json', iconv("ASCII", "UTF-8", json_encode($json)));
