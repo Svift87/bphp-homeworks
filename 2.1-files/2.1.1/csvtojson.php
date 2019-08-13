@@ -12,5 +12,11 @@ while ($str = fgetcsv($file, 1000, ';')) {
         $price => $str[2],
     ];
 }
+
+
 fclose($file);
-file_put_contents('data.json', json_encode($json));
+
+
+echo mb_detect_encoding(json_encode($json));
+
+file_put_contents('data.json', iconv("ASCII", "UTF-8", json_encode($json)));
