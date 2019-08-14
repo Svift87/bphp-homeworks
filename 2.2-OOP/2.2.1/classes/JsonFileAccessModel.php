@@ -1,44 +1,43 @@
 <?php
     class JsonFileAccessModel extends Config {
-        protected $fileName;
-        protected $file;
-        public function __construct($fileName) {
+        public function __construct() {
             $this->fileName = 'files/new.json';
         }
-        private function connect() {
-            if ($this->file == NULL) {
-                if (fopen($this->fileName,'r+') == FALSE) {
-                    echo 'error during opeining file';
-                }else {                    
-                    $this->file = fopen($this->fileName,'r+');
-                } 
-            } 
+
+        private function connect() {            
+            $this->file = fopen($this->fileName,'r+');
         }
+
         private function disconnect() {
             fclose($this->file);
         }
+
         public function read() {
             $this->connect();
             $text = fread($this->file,3000);
-            if ($text !== FALSE) {
-                $this->disconnect();
-                return $text;
-            }else {
-                echo 'error during reading this file';
-            }  
-            
+            $this->disconnect();
+            return $text;            
         }
+
         public function write($text) {
-            if(fopen($this->file,'w+') !== FALSE)
-            if(fwrite($this->file,$text)!== FALSE) echo 'Done';
+            $this->connect();
+            file_put_contents($text, '');
+            $text = fread($this->file,3000);
             $this->disconnect();
         }
+
         public function readJson() {
+            $this->connect();
+            $text = fread($this->file,3000);
+            $this->disconnect();
             return json_encode($this->read());
         }
+
         public function writeJson($jsonObject){
-            if(fopen($this->file,'w+') !== FALSE)
-            if(fwrite($this->file,json_decode($jsonObject,JSON_PRETTY_PRINT))!== FALSE) echo 'Done';
+            $this->connect();
+            file_put_contents($jsonObject, '');
+            $jsonObject = fread($this->file,3000);
+            json_decode($jsonObject, JSON_PRETTY_PRINT);
             $this->disconnect();
         }
     }
