@@ -29,7 +29,7 @@
             
         }
         public function write($text) {
-            if(fopen($this->file,'w+') !== FALSE);
+            if(fopen($this->file,'w+') !== FALSE)
             if(fwrite($this->file,$text)!== FALSE) echo 'Done';
             $this->disconnect();
         }
@@ -37,7 +37,7 @@
             return json_encode($this->read());
         }
         public function writeJson($jsonObject){
-            if(fopen($this->file,'w+') !== FALSE);
+            if(fopen($this->file,'w+') !== FALSE)
             if(fwrite($this->file,json_decode($jsonObject,JSON_PRETTY_PRINT))!== FALSE) echo 'Done';
             $this->disconnect();
         }

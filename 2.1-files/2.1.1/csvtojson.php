@@ -7,15 +7,13 @@ $price = $firstLine[2];
 $json = [];
 while ($str = fgetcsv($file, 1000, ';')) {
     $json[] = [
-        $name => $str[0],
-        $art => $str[1],
-        $price => $str[2],
+        $name => iconv("ASCII", "UTF-8", $str[0]),
+        $art => iconv("ASCII", "UTF-8", $str[1]),
+        $price => iconv("ASCII", "UTF-8", $str[2]),
     ];
 }
 
 
 fclose($file);
 
-echo mb_detect_encoding(json_encode($json));
-
-file_put_contents('data.json', iconv("ASCII", "UTF-8", json_encode($json)));
+file_put_contents('data.json', json_encode($json));
