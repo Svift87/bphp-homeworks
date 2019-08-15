@@ -77,6 +77,16 @@
             </li>
         </ul>
     </li>
+    <li>
+        <ul>
+            <li>Занятие 3.2
+                <ul>
+                    <li><a href="3.2-PHP7-PSR-PHPDoc/3.2.1">Задание 1</a></li>
+                    <li><a href="3.2-PHP7-PSR-PHPDoc/3.2.2">Задание 2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 </ul>
 </body>
 </html>
