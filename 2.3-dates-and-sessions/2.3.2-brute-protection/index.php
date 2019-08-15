@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+
 $users = [
     'admin' => 'admin1234',
     'randomUser' => 'somePassword',
@@ -15,21 +17,25 @@ foreach ($users as $key => $value) {
     }
 }
 
+setcookie("date", time());
+
+$_SESSION["date"] = time();
+
+$date = date('d.m.Y H:i:s');
+$file = fopen("${login}", 'a');
+
 $currentTime = time();
 
 $timeFromCookies = $_COOKIE["date"];
 
-if ($currentTime - $timeFromCookies < 5) {
-    $date = date('d.m.Y H:i:s');
-    $file = fopen("${login}", 'a');
+
+if ($currentTime - $timeFromCookies < 5) {    
     fwrite($file, "${date} : ${$ip} \n");
     fclose($file);
     echo "Слишком часто вводите пароль. Попробуйте еще раз через минуту";
     return false;
 } else {
-    setcookie("date", time());
     setcookie("ip", $ip);
-    $_SESSION["date"] = time();
     $_SESSION["ip"] = $ip;
     echo "Неверные данные";
     return false;
