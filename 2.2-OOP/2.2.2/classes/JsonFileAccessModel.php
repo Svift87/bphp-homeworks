@@ -6,14 +6,11 @@
             $this->fileName = parent::DATABASE_PATH.$fileName.'.json';
         }
         private function connect() {
-            var_dump($this->file);
             if ($this->file == NULL) {
-                if (fopen($this->fileName,'r+') == FALSE) {
-                    echo 'Ошибка во время открытия файла';
-                }else {                    
-                    $this->file = fopen($this->fileName,'r+');
-                } 
-            } 
+                echo 'Ошибка во время открытия файла';
+
+                fopen($this->fileName,'r+');
+            }
         }
         private function disconnect() {
             fclose($this->file);

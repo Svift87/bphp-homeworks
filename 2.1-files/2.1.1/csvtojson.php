@@ -7,10 +7,19 @@ $price = $firstLine[2];
 $json = [];
 
 while ($str = fgetcsv($file, 1000, ';')) {
+
+    $current_encoding0 = mb_detect_encoding($str[0]);
+    $current_encoding1 = mb_detect_encoding($str[1]);
+    $current_encoding2 = mb_detect_encoding($str[2]);
+
+    echo $current_encoding0;
+    echo $current_encoding1;
+    echo $current_encoding2;
+
     $json[] = [
-        $name => iconv("ASCII", "UTF-8", $str[0]),
-        $art => iconv("ASCII", "UTF-8",$str[1]),
-        $price => iconv("ASCII", "UTF-8",$str[2]),
+        $name => iconv($current_encoding0, "UTF-8", $str[0]),
+        $art => iconv($current_encoding1, "UTF-8", $str[1]),
+        $price => iconv($current_encoding2, "UTF-8", $str[2]),
     ];
 }
 
