@@ -4,7 +4,7 @@
  *
  * @var array $availableLinks
  */
-$availableLinks = include './availableLinks.php';
+$availableLinks;
 
 class WrongHeader extends Exception
 {
@@ -21,6 +21,8 @@ class Router
     }
     public function checkPageName()
     {
+        $availableLinks = include './availableLinks.php';
+
         if (!array_key_exists('page', $_GET)) {
             throw new WrongHeader('Ошибка запроса');
         }
