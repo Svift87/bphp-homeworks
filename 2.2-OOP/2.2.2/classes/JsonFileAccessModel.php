@@ -2,43 +2,39 @@
     class JsonFileAccessModel extends Config {
         protected $fileName;
         protected $file;
-        public function __construct($fileName) {
-            $this->fileName = parent::DATABASE_PATH.$fileName.'.json';
+        public function __construct($fileName)
+        {
+            $this->fileName = Config::DATABASE_PATH . $fileName . '.json';
         }
-        private function connect() {
-            if ($this->file == NULL) {
-                echo 'Ошибка во время открытия файла';
-
-                fopen($this->fileName,'r+');
-            }
+        private function connect()
+        {
+            $this->file = fopen($this->fileName, 'r+');
         }
-        private function disconnect() {
+        private function disconnect()
+        {
             fclose($this->file);
         }
-        public function read() {
+        public function read()
+        {
             $this->connect();
-            $text = fread($this->file,3000);
-            if ($text !== FALSE) {
-                $this->disconnect();
-                return $text;
-            }else {
-                echo 'Во время чтения файла произошла ошибка';
-            }  
-            
+            $text = fread($this->file, filesize($this->fileName));
+            $this->disconnect();
+            return $text;
         }
-        public function write($text) {
-            if(fopen($this->file,'w+') !== FALSE);
-            if(fwrite($this->file,$text)!== FALSE) echo 'Успешено';
+        public function write($text)
+        {
+            $this->connect();
+            fopen($this->fileName, 'w+');
+            fwrite($this->file, $text);
             $this->disconnect();
         }
-        public function readJson() {
-            return json_encode($this->read());
+        public function readJson()
+        {
+            return json_decode($this->read());
         }
-        public function writeJson($jsonObject){
-            if(fopen($this->file,'w+') !== FALSE);
-            if(fwrite($this->file,json_decode($jsonObject,JSON_PRETTY_PRINT))!== FALSE) echo 'Успешено';
-            $this->disconnect();
+        public function writeJson($jsonObject)
+        {
+            $this->write(json_encode($jsonObject, JSON_PRETTY_PRINT));
         }
     }
-    
 ?>

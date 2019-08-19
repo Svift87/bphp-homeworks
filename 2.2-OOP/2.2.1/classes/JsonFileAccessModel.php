@@ -20,24 +20,18 @@
         }
 
         public function write($text) {
-            $this->connect();
-            file_put_contents($text, '');
-            $text = fread($this->file,3000);
+            if(fopen($this->file,'w+') !== FALSE);
+            if(fwrite($this->file,$text)!== FALSE) echo 'Done';
             $this->disconnect();
         }
 
         public function readJson() {
-            $this->connect();
-            $text = fread($this->file,3000);
-            $this->disconnect();
             return json_encode($this->read());
         }
 
         public function writeJson($jsonObject){
-            $this->connect();
-            file_put_contents($jsonObject, '');
-            $jsonObject = fread($this->file,3000);
-            json_decode($jsonObject, JSON_PRETTY_PRINT);
+            if(fopen($this->file,'w+') !== FALSE);
+            if(fwrite($this->file,json_decode($jsonObject,JSON_PRETTY_PRINT))!== FALSE) echo 'Done';
             $this->disconnect();
         }
     }
