@@ -1,14 +1,24 @@
 <?php
 $login = $_POST['login'];
+
 $pass = $_POST['password'];
+
 $email = $_POST['email'];
+
 $firstName = $_POST['firstName'];
+
 $lastName = $_POST['lastName'];
+
 $middleName = $_POST['middleName'];
+
 $code = $_POST['code'];
+
 $codeWord = 'nd82jaake';
+
 $isCorrect = true;
+
 $patternLogin = '/[@\\*\\?\\/,;:]/';
+
 if (preg_match($patternLogin, $login)) {
     echo 'Поле логин не должно содержать символы @/*?,;: <br>';
     $isCorrect = false;
