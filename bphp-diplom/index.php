@@ -10,14 +10,14 @@ $users = [
 function login($users) {    
     $login = isset($_POST['login']) ? $_POST['login'] : '';
     if (array_key_exists($login, $users)) {
-        if ($_POST['login'] == $users['manager'] && $_POST['password'] == $users['manager']) {
+        if ($_POST['login'] == 'manager' && $_POST['password'] == $users['manager']) {
             echo 'ok manager!';
-            // header('Location: http://www.example.com/manager.html');
+            // header('Location: /manager/manager.html');
             // exit;
             return true;
-        } else if ($_POST['login'] == $users['translator'] && $_POST['password'] == $users['translator']) {
+        } else if ($_POST['login'] == 'translator' && $_POST['password'] == $users['translator']) {
             echo 'ok translator!';
-            // header('Location: http://www.example.com/translator.html');
+            // header('Location: /translator/translator.html');
             // exit;
             return true;
         }
@@ -26,3 +26,5 @@ function login($users) {
     echo 'неверный пароль или логин!';
     return false;
 }
+
+login($users);
