@@ -5,8 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">    
 </head>
 <body>
-    <p>Привет Менеджер</p>
+    <div class="header">
+        <div class="container">
+            <div class="header__sort__container">
+                <div class="header__sort"><a href="">новый</a></div>
+                <div class="header__sort"><a href="">Постановили</a></div>
+                <div class="header__sort"><a href="">Отклонено</a></div>
+                <div class="header__sort"><a href="">Готово</a></div>
+            </div>
+            <div class="header__btn_container">
+                <button class="btn btn__new_quest">Создать новый</button>
+                <button class="btn btn__exit">Выход</button>
+            </div>            
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <ul class="main__item">
+                <li class="main__list">
+                    <div class="main__text__container">
+                        <p class="main__text">                            
+                            Сайт рыбий текст поможет разработчикам, верстальщикам, веб-мастерам и нескольким абзацам более менее осмысленного текста на русском языке, а также начинающим ораторам отрабатывать навыки публичных выступлений в домашних условиях. 
+                        </p>
+                    </div>
+                    <div class="main__edit__container">
+                        <button class="btn btn__edit">Редактировать</button>
+                        <button class="btn btn__del">удалять</button>
+                        <div class="main__data">21/02/2019</div>
+                        <div class="main__logo">EN IT</div>
+                    </div>
+                    <div class="main__quest">
+                        <button class="btn main__quest__cloused">Закрыть</button>
+                        <div class="main__quest__top">
+                            <div class="main__quest__top--left">
+                                <p>Ответственный:</p>
+                                <select name="name">
+                                    <option>Не назначать</option>
+                                    <option>Данил</option>
+                                    <option>Федян</option>
+                                    <option>Адреан</option>
+                                </select>
+                            </div>
+                            <div class="main__quest__top--right">
+                                <p>Клиент:</p>
+                                <input type="text" value="">
+                            </div>
+                        </div>
+                        <div class="main__quest__center">
+                            <p>Язык оригинала:</p>
+                            <div class="main__quest__input__container">
+                                <div class="main__quest__input__block">
+                                    <input name="languege" type="radio" id="languege1">
+                                    <label for="languege1">Русский</label>
+                                </div>
+                                <div class="main__quest__input__block">
+                                    <input name="languege" type="radio" id="languege2">
+                                    <label for="languege2">Английский</label>
+                                </div>
+                                <div class="main__quest__input__block">
+                                    <input name="languege" type="radio" id="languege3">
+                                    <label for="languege3">Немецкий</label>
+                                </div>
+                                <div class="main__quest__input__block">
+                                    <input name="languege" type="radio" id="languege4">
+                                    <label for="languege4">Французский</label>
+                                </div>
+                            </div>
+                            <p>Языки перевода:</p>
+                            <div class="main__quest__input__container">
+                                <div class="main__quest__input__block">
+                                    <input name="languege_in" type="checkbox" id="languege_in-1">
+                                    <label for="languege_in-1">Русский</label>
+                                </div>
+                                <div class="main__quest__input__block">
+                                    <input name="languege_in" type="checkbox" id="languege_in-2">
+                                    <label for="languege_in-2">Английский</label>
+                                </div>
+                                <div class="main__quest__input__block">
+                                    <input name="languege_in" type="checkbox" id="languege_in-3">
+                                    <label for="languege_in-3">Немецкий</label>
+                                </div>
+                                <div class="main__quest__input__block">
+                                    <input name="languege_in" type="checkbox" id="languege_in-4">
+                                    <label for="languege_in-4">Французский</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__quest__text">
+                            <textarea name="text_description" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="main__quest__bottom">
+                            <button class="btn btn__read">Готово</button>
+                            <button class="btn btn__error">Отклонить</button>
+                            <div class="main__quest__bottom__input__conainer">
+                                <p>Крайний срок</p>
+                                <input type="text" placeholder="10/10/2019">
+                            </div>
+                            <button class="btn btn__save">Сохранить</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="popap">
+        <div class="main__quest--popap">
+            <button class="btn main__quest__cloused">Закрыть</button>
+            <div class="main__quest__top">
+                <div class="main__quest__top--left">
+                    <p>Ответственный:</p>
+                    <select name="name">
+                        <option>Не назначать</option>
+                        <option>Данил</option>
+                        <option>Федян</option>
+                        <option>Адреан</option>
+                    </select>
+                </div>
+                <div class="main__quest__top--right">
+                    <p>Клиент:</p>
+                    <input type="text" value="">
+                </div>
+            </div>
+            <div class="main__quest__center">
+                <p>Язык оригинала:</p>
+                <div class="main__quest__input__container">
+                    <div class="main__quest__input__block">
+                        <input name="languege" type="radio" id="languege1">
+                        <label for="languege1">Русский</label>
+                    </div>
+                    <div class="main__quest__input__block">
+                        <input name="languege" type="radio" id="languege2">
+                        <label for="languege2">Английский</label>
+                    </div>
+                    <div class="main__quest__input__block">
+                        <input name="languege" type="radio" id="languege3">
+                        <label for="languege3">Немецкий</label>
+                    </div>
+                    <div class="main__quest__input__block">
+                        <input name="languege" type="radio" id="languege4">
+                        <label for="languege4">Французский</label>
+                    </div>
+                </div>
+                <p>Языки перевода:</p>
+                <div class="main__quest__input__container">
+                    <div class="main__quest__input__block">
+                        <input name="languege_in" type="checkbox" id="languege_in-1">
+                        <label for="languege_in-1">Русский</label>
+                    </div>
+                    <div class="main__quest__input__block">
+                        <input name="languege_in" type="checkbox" id="languege_in-2">
+                        <label for="languege_in-2">Английский</label>
+                    </div>
+                    <div class="main__quest__input__block">
+                        <input name="languege_in" type="checkbox" id="languege_in-3">
+                        <label for="languege_in-3">Немецкий</label>
+                    </div>
+                    <div class="main__quest__input__block">
+                        <input name="languege_in" type="checkbox" id="languege_in-4">
+                        <label for="languege_in-4">Французский</label>
+                    </div>
+                </div>
+            </div>
+            <div class="main__quest__text">
+                <textarea name="text_description" cols="30" rows="10"></textarea>
+            </div>
+            <div class="main__quest__bottom">
+                <button class="btn btn__read">Готово</button>
+                <button class="btn btn__error">Отклонить</button>
+                <div class="main__quest__bottom__input__conainer">
+                    <p>Крайний срок</p>
+                    <input type="text" placeholder="10/10/2019">
+                </div>
+                <button class="btn btn__save">Сохранить</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
 </body>
 </html>
