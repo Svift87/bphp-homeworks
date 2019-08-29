@@ -1,0 +1,10 @@
+{
+  "manager": {
+    "name": "manager",
+    "password": "manager"
+  },
+  "translators": {
+    "name": "translators",
+    "password": "translators"
+  }
+}
